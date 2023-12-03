@@ -2,13 +2,16 @@
     <div class="header">
         <div class="headerLeft"><span class="iconfont icon-fanhui"></span></div>
         <div class="headerInput"><span class="iconfont icon-a-dangan_huaban1fuben5"></span>输入城市/景点/游玩主题</div>
-        <div class="headerRight">城市<span class="iconfont icon-diquxialajiantou"></span></div>
+        <div class="headerRight">{{ this.city }}<span class="iconfont icon-diquxialajiantou"></span></div>
     </div>
 </template>
 
 <script>
 export default {
     name: 'HeaderPage',
+    props: {
+        city: String
+    }
 
 };
 </script>

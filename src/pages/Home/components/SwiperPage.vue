@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
-        <swiper :options="swiperOption">
-            <swiper-slide v-for="item of swiperList" :key="item.id">
+        <swiper :options="swiperOption" v-if="showSwiper">
+            <swiper-slide v-for="item of list" :key="item.id">
                 <img class="swiperImg" :src="item.imgUrl" />
             </swiper-slide>
             <div class="swiper-pagination" slot="pagination"></div>
@@ -12,6 +12,9 @@
 <script>
 export default {
     name: 'HomeSwiper',
+    props: {
+        list: Array
+    },
     data() {
         return {
             swiperOption: {
@@ -19,18 +22,15 @@ export default {
                 loop: true,
 
             },
-            swiperList: [
-                {
-                    id: '0001',
-                    imgUrl: "https://ad-dapp-osscp.qunarzz.com/ad_dapp_oss_oper/9f64aa5050c770f88033e1b6ef21e258.jpg"
-                },
-                {
-                    id: '0002',
-                    imgUrl: "https://ad-dapp-osscp.qunarzz.com/ad_dapp_oss_oper/a8fe422f63cd04c880d423cb5a9b8145.jpg"
-                }
-            ],
+
         }
-    }
+    },
+    computed: {
+        showSwiper() {
+            //如果传递过来的是空数组，就先等待真正数据传过来，不然会出现细节问题
+            return this.list.length
+        }
+    },
 
 
 };
@@ -41,10 +41,12 @@ export default {
     background: #fff
     position: absolute;
     bottom: 30px;
-    width: 100%;
+    width: 10px;
+    height: 10px;
     //text-align: center;
     //margin: 0 4px
-    margin-left: 175px
+    margin-left: 160px
+    border-radius: 50%
     
    
     

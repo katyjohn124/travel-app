@@ -1,6 +1,6 @@
 <template>
-    <div class="icons">
-        <swiper>
+    <div class="icons" v-if="this.list && this.list.length">
+        <swiper :options="swiperOption">
             <swiper-slide v-for="(page, index) of pages" :key="index">
                 <div class="icon" v-for="item of page" :key="item.id">
                     <div class="iconImg">
@@ -18,63 +18,21 @@ import { swiper } from 'vue-awesome-swiper';
 
 export default {
     name: 'HomeIcons',
-    components: { swiper },
+    props: {
+        list: Array
+    },
     data() {
         return {
-            iconList: [
-                {
-                    id: '0001',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-                    desc: '景点门票'
-                },
-                {
-                    id: '0002',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png',
-                    desc: '滑雪季'
-                },
-                {
-                    id: '0003',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
-                    desc: '呵呵哒'
-                },
-                {
-                    id: '0004',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
-                    desc: '放心飞'
-                },
-                {
-                    id: '0005',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png',
-                    desc: '随心玩'
-                },
-                {
-                    id: '0006',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
-                    desc: '夏日优惠'
-                },
-                {
-                    id: '0007',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
-                    desc: '狂欢节'
-                },
-                {
-                    id: '0008',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png',
-                    desc: '一日游'
-                },
-                {
-                    id: '0009',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-                    desc: '动物园'
-                }
-
-            ]
+            swiperOption: {
+                autoplay: false
+            }
         }
     },
+    components: { swiper },
     computed: {
         pages() {
             const pages = [];
-            this.iconList.forEach((item, index) => {
+            this.list.forEach((item, index) => {
                 // 0-7 8-15 16-23, 8个（长度）一组
                 const page = Math.floor(index / 8);
                 if (!pages[page]) {
@@ -84,6 +42,9 @@ export default {
             })
             return pages;
         }
+    },
+    mounted() {
+        console.log(this.list); // 打印出 list prop
     }
 };
 </script>
