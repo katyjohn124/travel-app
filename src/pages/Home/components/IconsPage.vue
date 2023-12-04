@@ -44,7 +44,7 @@ export default {
         }
     },
     mounted() {
-        console.log(this.list); // 打印出 list prop
+        // console.log(this.list); // 打印出 list prop
     }
 };
 </script>

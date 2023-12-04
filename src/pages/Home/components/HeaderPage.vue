@@ -2,13 +2,15 @@
     <div class="header">
         <div class="headerLeft"><span class="iconfont icon-fanhui"></span></div>
         <div class="headerInput"><span class="iconfont icon-a-dangan_huaban1fuben5"></span>输入城市/景点/游玩主题</div>
-        <div class="headerRight">{{ this.city }}<span class="iconfont icon-diquxialajiantou"></span></div>
+        <router-link to="/city">
+            <div class="headerRight">{{ this.city }}<span class="iconfont icon-diquxialajiantou"></span></div>
+        </router-link>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'HeaderPage',
+    name: 'HomeHeader',
     props: {
         city: String
     }
@@ -20,7 +22,7 @@ export default {
 @import '~@/assets/styles/varibles.styl'
 .header
     display: flex
-    line-height: .86rem
+    line-height: $headerHeight
     background: $bgColor
     align-items: center // 确保所有子项垂直居中
     color: #fff
@@ -48,4 +50,5 @@ export default {
         display: flex
         align-items: center // 如果里面有多个元素，确保它们垂直居中
         //flex-direction: row 
+        color: #fff
 </style>

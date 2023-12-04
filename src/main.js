@@ -10,11 +10,11 @@ import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/swiper-bundle.css'
 //使用路由
-Vue.use(VueRouter)
+
 //解决移动端300ms延迟
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
-
+Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 new Vue({

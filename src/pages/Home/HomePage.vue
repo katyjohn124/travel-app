@@ -16,6 +16,8 @@ import HomeRecommend from './components/RecommendPage.vue';
 import HomeWeekend from './components/WeekendPage.vue';
 import axios from 'axios';
 
+
+
 export default {
     name: 'HomePage',
     components: {
@@ -23,7 +25,9 @@ export default {
         HomeSwiper,
         HomeIcons,
         HomeRecommend,
-        HomeWeekend
+        HomeWeekend,
+
+
     },
     data() {
         return {
