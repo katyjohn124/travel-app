@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <!-- <HomePage></HomePage> -->
-    <router-view></router-view>
+    <!-- 用keepalive来保持页面性能优化 -->
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
 
   </div>
 </template>
