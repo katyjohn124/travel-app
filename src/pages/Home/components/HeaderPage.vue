@@ -9,12 +9,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
     name: 'HomeHeader',
-    props: {
-        city: String
+    computed: {
+        ...mapState(['city'])
     }
-
 };
 </script>
 
@@ -45,10 +45,12 @@ export default {
         color: #ccc
         
     .headerRight
-        width: .98rem
+        //width: .98rem
         //float: right
         display: flex
         align-items: center // 如果里面有多个元素，确保它们垂直居中
         //flex-direction: row 
         color: #fff
+        min-width: 1.04rem
+        padding: 0 .1rem
 </style>
