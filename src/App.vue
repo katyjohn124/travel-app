@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <HomePage></HomePage> -->
     <!-- 用keepalive来保持页面性能优化 -->
-    <keep-alive>
+    <keep-alive exclude="DetailPage">
       <router-view></router-view>
     </keep-alive>
 

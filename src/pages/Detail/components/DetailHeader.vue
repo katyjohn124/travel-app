@@ -7,7 +7,7 @@
             <div class="header-fixed" v-show="!headerShow" :style="opacityStyle">
                 <div class="iconfont header-fixed-back">&#xe6ff;
                 </div>
-                景点详情
+                {{ this.sightName }}
             </div>
         </router-link>
 
@@ -17,6 +17,9 @@
 <script>
 export default {
     name: 'DetailHeader',
+    props: {
+        sightName: String
+    },
     data() {
         return {
             headerShow: true,
@@ -48,11 +51,13 @@ export default {
             }
         }
     },
-    activated() {
+    //监听滚动事件
+    created() {
 
         window.addEventListener('scroll', this.handleSrcoll)
     },
-    deactivated() {
+    //解绑滚动事件
+    beforeDestroy() {
         //对全局事件进行解绑滚动事件,防止内存泄漏等问题
         window.removeEventListener('scroll', this.handleSrcoll)
     }
