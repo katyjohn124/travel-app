@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import HomePage from "../pages/Home/HomePage.vue";
 import CityPage from "../pages/City/CityPage.vue";
+import DetailPage from "../pages/Detail/DetailPage.vue";
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -15,6 +16,11 @@ const router = new VueRouter({
             path: "/City",
             name: "City",
             component: CityPage,
+        },
+        {
+            path: "/detail/:id",
+            name: "Detail",
+            component: DetailPage,
         },
     ],
 });
