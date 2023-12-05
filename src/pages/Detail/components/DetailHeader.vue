@@ -75,6 +75,7 @@ export default {
       color: #fff
       font-size: .4rem
   .header-fixed
+    z-index:2//设置层级
     position: fixed
     top: 0
     left: 0
