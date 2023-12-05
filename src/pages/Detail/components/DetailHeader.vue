@@ -29,6 +29,7 @@ export default {
     },
     methods: {
         handleSrcoll() {
+            console.log('scroll');
             const top = document.documentElement.scrollTop;//获取滚动条滚动的距离
             if (top > 60) {
                 let opacity = top / 140;//计算透明度
@@ -48,7 +49,12 @@ export default {
         }
     },
     activated() {
+
         window.addEventListener('scroll', this.handleSrcoll)
+    },
+    deactivated() {
+        //对全局事件进行解绑滚动事件,防止内存泄漏等问题
+        window.removeEventListener('scroll', this.handleSrcoll)
     }
 };
 </script>
