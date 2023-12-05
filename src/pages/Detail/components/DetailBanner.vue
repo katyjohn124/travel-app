@@ -12,12 +12,15 @@
                 </div>
             </div>
         </div>
-        <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+        <FagePage>
+            <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+        </FagePage>
     </div>
 </template>
   
 <script>
 import CommonGallary from '@/common/gallary/GallaryPage.vue'
+import FagePage from '@/common/fade/FadePage.vue'
 export default {
     name: 'DetailBanner',
     props: {
@@ -40,7 +43,8 @@ export default {
         }
     },
     components: {
-        CommonGallary
+        CommonGallary,
+        FagePage
     }
 }
 </script>

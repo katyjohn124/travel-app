@@ -33,7 +33,7 @@ export default {
     methods: {
         handleSrcoll() {
             console.log('scroll');
-            const top = document.documentElement.scrollTop;//获取滚动条滚动的距离
+            const top = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;//获取滚动条滚动的距离
             if (top > 60) {
                 let opacity = top / 140;//计算透明度
                 opacity = opacity > 1 ? 1 : opacity;//透明度最大为1
